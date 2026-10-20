@@ -4,7 +4,7 @@ Página de vendas das 5 edições 2027 (Bronze, Nails, PMU, Cabeleireiros, Barbe
 Proposta de identidade e página feita pela L2M Tecnologia, em parceria com a Cacheadu's, para apresentar ao Cruzeiro da Beleza.
 
 - Site estático: `index.html` + `fotos/` + `emblema.svg`. Sem build.
-- Publicado pelo GitHub Pages (branch `main`, pasta raiz).
+- Publicado pelo GitHub Pages (branch `main`, pasta raiz): https://l2m-tec.github.io/Cruzeiro-da-beleza/
 - Todos os botões levam ao WhatsApp de vendas (22) 99955-9206. Valores só no atendimento.
 - `noindex` + `robots.txt`: a página não aparece no Google enquanto for proposta.
 
