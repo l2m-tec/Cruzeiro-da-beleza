@@ -187,6 +187,49 @@ details[open]{border-color:var(--ouro);box-shadow:0 6px 18px rgba(11,31,91,.07)}
 }
 @media (max-width:440px){.ec-barber{grid-column:auto}}
 @media (max-width:360px){.chips a{padding:8px 11px;font-size:11.5px;min-height:40px}}
+
+/* v4 — boas práticas do vídeo (menu, rótulos, movimento, seções compactas) */
+section,header.hero{scroll-margin-top:64px}
+.topo{position:sticky;top:0;z-index:20;background:rgba(6,18,58,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(232,181,58,.25)}
+.topo .wrap{display:flex;align-items:center;gap:22px;height:60px}
+.t-logo{display:flex;align-items:center;gap:9px;text-decoration:none;margin-right:auto}
+.t-logo svg{width:34px;height:34px}.t-logo .c{font-size:12.5px;color:#fff}.t-logo .s{font-size:19px}
+.t-links{display:flex;gap:22px}
+.t-links a{color:#dfe6f7;text-decoration:none;font-size:13.5px;font-weight:600;padding:6px 0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.t-links a:hover,.t-links a.ativo{color:#fff;border-color:var(--ouro)}
+.t-cta{padding:10px 16px;font-size:12px;box-shadow:none}
+.selo-h{display:inline-block;margin-bottom:18px;padding:7px 14px;border:1px solid rgba(232,181,58,.6);background:rgba(232,181,58,.12);color:#F3D58A;font-size:12px;font-weight:700;letter-spacing:.08em;border-radius:40px}
+.arraste,.dots{display:none}
+/* movimento: entrada suave, sem atrapalhar quem prefere sem animação */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+.js .hero .box>*{animation:sobe .8s ease both}
+.js .hero .box>*:nth-child(2){animation-delay:.08s}.js .hero .box>*:nth-child(3){animation-delay:.16s}.js .hero .box>*:nth-child(4){animation-delay:.24s}.js .hero .box>*:nth-child(n+5){animation-delay:.32s}
+@keyframes sobe{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.btn{transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{box-shadow:0 12px 26px rgba(11,31,91,.32)}
+.btn.sec:hover{background:rgba(255,255,255,.1)}
+.btn:focus-visible,.chips a:focus-visible,.t-links a:focus-visible,summary:focus-visible,.ec-b:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.js .hero .box>*{animation:none}html{scroll-behavior:auto}}
+@media (min-width:721px){.flutua{display:none}}
+@media (max-width:900px){.t-links{display:none}}
+@media (max-width:720px){
+ .topo .wrap{height:54px}.t-cta span{display:none}.t-cta{padding:10px 12px}.t-cta .i-wa{width:20px;height:20px}
+ .selo-h{font-size:11px;margin-bottom:12px}
+ /* edições em carrossel: 1 tela em vez de 3 */
+ .eds{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:14px -22px 0;padding:8px 22px 12px;scrollbar-width:none}
+ .ec:hover{transform:none}
+ .eds::-webkit-scrollbar{display:none}
+ .ec{flex:0 0 80%;scroll-snap-align:center}
+ .arraste{display:block;margin-top:6px;font-size:13px;font-weight:700;color:var(--ouroE)}
+ .dots{display:flex;justify-content:center;gap:7px;margin-top:14px}
+ .dots i{width:7px;height:7px;border-radius:50%;background:#d9c9a8;transition:width .2s,background .2s}
+ .dots i.on{width:22px;border-radius:6px;background:var(--navy)}
+ .flutua.on{opacity:1}
+}
+@media (max-width:440px){.eds{display:flex}}
+@media (max-width:360px){.selo-h{display:none}header.hero{padding-top:118px!important;background-size:auto 200px!important}header.hero:before{background:linear-gradient(180deg,rgba(11,31,91,0) 0,rgba(11,31,91,0) 90px,rgba(11,31,91,1) 195px)!important}.hero h1{font-size:25px}.hero .logo{margin-bottom:12px}.hero .box{padding-top:4px!important}.topo .wrap{height:50px}.t-logo svg{width:30px;height:30px}}
+.ec.pulse{box-shadow:0 0 0 4px var(--ouro),0 14px 30px rgba(11,31,91,.22)}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs>
  <clipPath id="cc"><circle cx="50" cy="50" r="46"/></clipPath>
@@ -211,32 +254,39 @@ details[open]{border-color:var(--ouro);box-shadow:0 6px 18px rgba(11,31,91,.07)}
  <symbol id="ic-nav" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18l-2.5 4h-13z M6 15v-4h12v4 M9 11V8h6v3 M12 8V5"/><path d="M2 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/></g></symbol>
  <symbol id="ic-net" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 20a5.5 5.5 0 0 1 11 0M14 20a4 4 0 0 1 7.5-2"/></g></symbol>
 </defs></svg>
-<div class="barra">Março de 2027 · <b>5 edições</b> <span style="white-space:nowrap">· MSC Música</span> <span style="white-space:nowrap">· Saindo de Santos</span></div>
+<nav class="topo" aria-label="Menu"><div class="wrap">
+ <a class="t-logo" href="#inicio" aria-label="Cruzeiro da Beleza, início"><svg><use href="#emb"/></svg><span class="wm"><span class="c">CRUZEIRO</span><span class="s">da Beleza</span></span></a>
+ <div class="t-links"><a href="#edicoes">Edições</a><a href="#incluso">O que inclui</a><a href="#bordo">A bordo</a><a href="#duvidas">Dúvidas</a></div>
+ <a class="btn t-cta" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20minha%20cabine%20no%20Cruzeiro%20da%20Beleza%202027." target="_blank" rel="noopener" data-cta="menu-whats"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg><span>Reservar pelo WhatsApp</span></a>
+</div></nav>
+<div class="barra" id="inicio">Março de 2027 · <b>5 edições</b> <span style="white-space:nowrap">· MSC Música</span> <span style="white-space:nowrap">· Saindo de Santos</span></div>
 <header class="hero"><div class="wrap"><div class="box">
+ <div class="selo-h">✓ Edição 2026 realizada · Santos → Buenos Aires</div>
  <div class="logo"><svg><use href="#emb"/></svg><div class="wm"><span class="c">CRUZEIRO</span><span class="s">da Beleza</span></div></div>
  <h1>Aprenda com<br>os grandes nomes<br>da beleza <i>em alto-mar</i></h1>
- <p class="lead">Workshops exclusivos, cabine no navio e uma semana com quem vive da beleza como você. Escolha a sua edição.</p>
+ <p class="lead">Workshops com referências da sua área, dias no mar e contatos que você leva para a vida profissional.</p>
  <div class="ctas"><a class="btn" href="#edicoes" data-cta="hero-edicoes">Escolher minha edição</a>
- <a class="btn sec" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20o%20Cruzeiro%20da%20Beleza%202027." target="_blank" rel="noopener" data-cta="hero-whats"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Tirar dúvidas</a></div>
+ <a class="btn sec" href="#duvidas" data-cta="hero-duvidas">Tirar dúvidas</a></div>
  <div class="chips-t">Escolha a sua área</div><nav class="chips" aria-label="Edições"><a href="#ed-bronze">Bronze</a><a href="#ed-nails">Nails</a><a href="#ed-pmu">PMU</a><a href="#ed-cab">Cabeleireiros</a><a href="#ed-barber">Barber</a></nav>
 </div></div></header>
 
 <section id="edicoes"><div class="wrap">
  <div class="k">Edições 2027</div>
  <h2>Qual é a <i>sua edição?</i></h2>
- <p class="sub">Cada edição tem programação para uma área. Toque no botão da sua edição: <b>valores, cabines e formas de pagamento são passados pela equipe no WhatsApp</b>.</p>
+ <p class="sub">Uma edição por área. <b>Valores, cabines e pagamento: a equipe passa no WhatsApp.</b></p><p class="arraste" aria-hidden="true">Arraste para ver as 5 edições →</p>
  <div class="eds"><article class="ec ec-bronze" id="ed-bronze"><div class="ec-top"><div class="ec-area">Bronzeamento</div><div class="ec-c">CRUZEIRO</div><div class="ec-n">Bronze</div><div class="ec-d">15 a 19/03/2027</div></div><p class="ec-t">Programação para profissionais de bronzeamento.</p><a class="ec-b" data-ed="Bronze" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20o%20Cruzeiro%20Bronze%202027%20%2815%20a%2019/03/2027%29.%20Pode%20me%20passar%20valores%20e%20cabines%3F" target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Quero o Bronze</a></article><article class="ec ec-nails" id="ed-nails"><div class="ec-top"><div class="ec-area">Unhas</div><div class="ec-c">CRUZEIRO</div><div class="ec-n">Nails</div><div class="ec-d">19 a 22/03/2027</div></div><p class="ec-t">Programação para manicures e nail designers.</p><a class="ec-b" data-ed="Nails" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20o%20Cruzeiro%20Nails%202027%20%2819%20a%2022/03/2027%29.%20Pode%20me%20passar%20valores%20e%20cabines%3F" target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Quero o Nails</a></article><article class="ec ec-pmu" id="ed-pmu"><div class="ec-top"><div class="ec-area">Micropigmentação</div><div class="ec-c">CRUZEIRO</div><div class="ec-n">PMU</div><div class="ec-d">22 a 26/03/2027</div></div><p class="ec-t">Programação para micropigmentadoras.</p><a class="ec-b" data-ed="PMU" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20o%20Cruzeiro%20PMU%202027%20%2822%20a%2026/03/2027%29.%20Pode%20me%20passar%20valores%20e%20cabines%3F" target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Quero o PMU</a></article><article class="ec ec-cab" id="ed-cab"><div class="ec-top"><div class="ec-area">Cabelo</div><div class="ec-c">CRUZEIRO</div><span class="ec-dos">dos</span><div class="ec-n">Cabeleireiros</div><div class="ec-d">29/03 a 01/04/2027</div></div><p class="ec-t">Programação para cabeleireiras e cabeleireiros. <span class="ec-junto">Mesmo navio e datas do Barber</span></p><a class="ec-b" data-ed="Cabeleireiros" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20o%20Cruzeiro%20dos%20Cabeleireiros%202027%20%2829/03%20a%2001/04/2027%29.%20Pode%20me%20passar%20valores%20e%20cabines%3F" target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Quero o Cabelo</a></article><article class="ec ec-barber" id="ed-barber"><div class="ec-top"><div class="ec-area">Barbearia</div><div class="ec-c">CRUZEIRO</div><div class="ec-n">Barber</div><div class="ec-d">29/03 a 01/04/2027</div></div><p class="ec-t">Programação para barbeiros. <span class="ec-junto">Mesmo navio e datas dos Cabeleireiros</span></p><a class="ec-b" data-ed="Barber" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20o%20Cruzeiro%20Barber%202027%20%2829/03%20a%2001/04/2027%29.%20Pode%20me%20passar%20valores%20e%20cabines%3F" target="_blank" rel="noopener"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Quero o Barber</a></article></div>
+ <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
  <p class="nota"><b>Vagas limitadas por edição.</b> Consulte a disponibilidade com a equipe.</p>
 </div></section>
 
-<section style="background:#fff"><div class="wrap">
+<section id="incluso" style="background:#fff"><div class="wrap">
  <div class="k">O que está incluso</div>
  <h2>Conteúdo, conforto <i>e conexões</i></h2>
  <div class="inc">
-  <div class="dest"><span class="selo">O diferencial</span><svg class="ic"><use href="#ic-ws"/></svg><h3>Workshops</h3><p>Exclusivos para quem participa do Cruzeiro da Beleza, com profissionais renomados da área.</p></div>
+  <div class="dest"><span class="selo">O diferencial</span><svg class="ic"><use href="#ic-ws"/></svg><h3>Workshops</h3><p>Técnica nova direto com quem é referência, para aplicar no seu atendimento quando voltar.</p></div>
   <div><svg class="ic"><use href="#ic-cab"/></svg><h3>Cabine</h3><p>Seu quarto no MSC Música: cabine interna ou externa, com vista para o mar.</p></div>
-  <div><svg class="ic"><use href="#ic-nav"/></svg><h3>O navio</h3><p>Espaços e eventos do navio: piscinas, teatro, restaurantes e áreas de descanso.</p></div>
-  <div><svg class="ic"><use href="#ic-net"/></svg><h3>Networking</h3><p>Dias convivendo com colegas de profissão e com os nomes que você acompanha.</p></div>
+  <div><svg class="ic"><use href="#ic-nav"/></svg><h3>O navio</h3><p>Piscinas, teatro, restaurantes e descanso entre um workshop e outro.</p></div>
+  <div><svg class="ic"><use href="#ic-net"/></svg><h3>Networking</h3><p>Dias de convivência com colegas e com os nomes que você acompanha. Contato que vira parceria.</p></div>
  </div>
  <p class="obs">Passeios nas paradas e alguns eventos pagos do navio são à parte. <a href="#duvidas">Veja o que entra no valor</a>.</p>
 </div></section>
@@ -252,7 +302,7 @@ details[open]{border-color:var(--ouro);box-shadow:0 6px 18px rgba(11,31,91,.07)}
  <a class="btn" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20reservar%20minha%20cabine%20no%20Cruzeiro%20da%20Beleza%202027." target="_blank" rel="noopener" data-cta="passos-whats"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Reservar pelo WhatsApp</a>
 </div></section>
 
-<section class="galeria"><div class="wrap">
+<section class="galeria" id="bordo"><div class="wrap">
  <div class="k">Quem já embarcou</div>
  <h2>É assim <i>a bordo</i></h2>
  <p class="sub">Fotos de participantes e embaixadoras do Cruzeiro da Beleza.</p>
@@ -263,14 +313,14 @@ details[open]{border-color:var(--ouro);box-shadow:0 6px 18px rgba(11,31,91,.07)}
   <figure class="g5"><img src="fotos/hall-navio.jpg" alt="Hall interno do navio MSC" loading="lazy"><figcaption>Por dentro do navio</figcaption></figure>
   <figure class="g6"><img src="fotos/deck-sol.jpg" alt="Deck superior do navio em dia de sol" loading="lazy"><figcaption>O navio em dia de sol</figcaption></figure>
  </div>
- <div class="gal-ctas"><a class="btn" href="#edicoes" data-cta="galeria-edicoes">Quero embarcar em 2027</a><a class="lnk" href="https://www.instagram.com/cruzeirodabeleza/" target="_blank" rel="noopener">Ver mais fotos no Instagram →</a></div>
+ <div class="gal-ctas"><a class="btn" href="#edicoes" data-cta="galeria-edicoes">Escolher minha edição</a><a class="lnk" href="https://www.instagram.com/cruzeirodabeleza/" target="_blank" rel="noopener">Ver mais fotos no Instagram →</a></div>
 </div></section>
 <section><div class="wrap rota">
  <div>
   <div class="k">Edição 2026</div>
   <h2>A última viagem <i>foi assim</i></h2>
   <p class="sub">Em março de 2026 o Cruzeiro da Beleza levou profissionais pelo MSC Preziosa, saindo de Santos:</p>
-  <ol class="tl"><li><b>Embarque</b>Santos (SP)</li><li><b>Parada</b>Balneário Camboriú (SC)</li><li><b>Parada</b>Punta del Este (Uruguai)</li><li><b>Parada</b>Buenos Aires (Argentina)</li></ol><p class="mar">Entre as paradas, dias de navegação com os workshops a bordo. <b>Em 2027, o navio é o MSC Música.</b></p><a class="btn" href="#edicoes" data-cta="rota-edicoes">Quero ir em 2027</a>
+  <ol class="tl"><li><b>Embarque</b>Santos (SP)</li><li><b>Parada</b>Balneário Camboriú (SC)</li><li><b>Parada</b>Punta del Este (Uruguai)</li><li><b>Parada</b>Buenos Aires (Argentina)</li></ol><p class="mar">Entre as paradas, dias de navegação com os workshops a bordo. <b>Em 2027, o navio é o MSC Música.</b></p><a class="btn" href="#edicoes" data-cta="rota-edicoes">Escolher minha edição</a>
  </div>
  <div class="foto" role="img" aria-label="Participantes do Cruzeiro da Beleza 2026 a bordo"></div>
 </div></section>
@@ -286,7 +336,7 @@ details[open]{border-color:var(--ouro);box-shadow:0 6px 18px rgba(11,31,91,.07)}
 <section class="final"><div class="wrap">
  <h2>Sua cabine está <i>esperando</i></h2>
  <p class="sub">Fale com a equipe do Cruzeiro da Beleza pelo WhatsApp e garanta o seu lugar em 2027.</p>
- <a class="btn" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20garantir%20minha%20vaga%20no%20Cruzeiro%20da%20Beleza%202027." target="_blank" rel="noopener" data-cta="final-whats"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Garantir minha cabine</a>
+ <a class="btn" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Quero%20garantir%20minha%20vaga%20no%20Cruzeiro%20da%20Beleza%202027." target="_blank" rel="noopener" data-cta="final-whats"><svg class="i-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg>Reservar pelo WhatsApp</a>
  <p class="micro">Atendimento direto com a equipe do Cruzeiro · <a href="tel:+5522999559206">(22) 99955-9206</a></p>
 </div></section>
 
@@ -296,6 +346,17 @@ details[open]{border-color:var(--ouro);box-shadow:0 6px 18px rgba(11,31,91,.07)}
 </div></footer>
 <a class="flutua" href="https://wa.me/5522999559206?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20o%20Cruzeiro%20da%20Beleza%202027." target="_blank" rel="noopener" data-cta="flutuante" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#wa"/></svg><span>Reservar pelo WhatsApp</span></a>
 <script>
+
+document.documentElement.classList.add('js');
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('section .wrap>*:not(.eds), .eds>.ec, .inc>div, .passo, .gal figure').forEach(el=>{el.classList.add('rv');io.observe(el)});
+const eds=document.querySelector('.eds'),dots=[...document.querySelectorAll('.dots i')];
+const marca=()=>{const c=[...eds.children];const x=eds.scrollLeft+eds.clientWidth/2;let k=0,m=1e9;c.forEach((el,i)=>{const d=Math.abs(el.offsetLeft+el.offsetWidth/2-x);if(d<m){m=d;k=i}});dots.forEach((d,i)=>d.classList.toggle('on',i===k))};
+eds.addEventListener('scroll',marca,{passive:true});marca();
+document.querySelectorAll('a[href^="#ed-"]').forEach(a=>a.addEventListener('click',ev=>{const t=document.querySelector(a.getAttribute('href'));if(!t||eds.scrollWidth<=eds.clientWidth+2)return;ev.preventDefault();document.querySelector('#edicoes').scrollIntoView({behavior:'smooth'});setTimeout(()=>{eds.scrollTo({left:t.offsetLeft-22,behavior:'smooth'});t.classList.add('pulse');setTimeout(()=>t.classList.remove('pulse'),1400)},450)}));
+const links=[...document.querySelectorAll('.t-links a')];const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('ativo',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+['edicoes','incluso','bordo','duvidas'].forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el)});
+})();
 document.querySelectorAll('[data-cta],[data-ed]').forEach(a=>a.addEventListener('click',()=>{try{window.dataLayer=window.dataLayer||[];dataLayer.push({event:'clique_reserva',cta:a.dataset.cta||('edicao-'+a.dataset.ed)})}catch(e){}}));
 const fl=document.querySelector('.flutua'),hb=document.querySelector('header.hero');const chk=()=>fl.classList.toggle('on',hb.getBoundingClientRect().bottom<0);addEventListener('scroll',chk,{passive:true});chk();
 </script>
